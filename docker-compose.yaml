@@ -2,6 +2,15 @@ version: '3.8'
 
 services:
 
+  app:
+    image: app:1.0
+    restart: always
+    env_file:
+      - .env
+    ports:
+      - 8080:8080
+    depends_on:
+      - database
   database:
     image: postgres
     restart: always
